@@ -18,7 +18,7 @@ main() {
   do
     echo ""
     echo "PARAM: " ${PARAMETERS_VALUES[$i]}
-    CURRENT_VALUE=${PARAMETERS_VALUES[$i]} | cut -d "::" -f 1
+    CURRENT_VALUE=$(echo ${PARAMETERS_VALUES[$i]} | cut -d "::" -f 1)
     NEW_VALUE=$(echo ${PARAMETERS_VALUES[$i]} | cut -d "::" -f 2 | sed 's/$//;s/\n//')
     echo "🔍 CURRENT_VALUE: $CURRENT_VALUE"
     echo "🔎 NEW_VALUE: $NEW_VALUE"
