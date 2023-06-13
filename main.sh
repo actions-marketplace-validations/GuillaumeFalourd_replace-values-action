@@ -5,24 +5,24 @@ set -euo pipefail
 main() {
 
   local FILE_PATH="$FILE_PATH";
-  local CURRENT_VALUE="$CURRENT_VALUE";
-  local NEW_VALUE="$NEW_VALUE";
+  local PARAMETERS="$PARAMETERS";
 
   echo "FILE_PATH:$FILE_PATH"
     
   SAVEIFS=$IFS                      # Save current IFS (Internal Field Separator)
   IFS=$'\n'                         # Change IFS to newline char
-  CURRENT_VALUES=($CURRENT_VALUE)   # split the `current_value` string into an array by the same name
+  PARAMETERS_VALUES=($PARAMETERS)   # split the `parameters` string into an array by the same name
   IFS=$SAVEIFS                      # Restore original IFS
-  IFS=$'\n'                         # Change IFS to newline char
-  NEW_VALUES=($NEW_VALUE)           # split the `new_value` string into an array by the same name
-  IFS=$SAVEIFS                      # Restore original IFS 
 
-  for (( i=0; i<${#CURRENT_VALUES[@]}; i++ ))
+  for (( i=0; i<${#PARAMETERS_VALUES[@]}; i++ ))
   do
     echo ""
-    echo "🔍 CURRENT_VALUE: ${CURRENT_VALUES[$i]}"
-    echo "🔎 NEW_VALUE: ${NEW_VALUES[$i]}"
+    SAVEIFS=$IFS
+    IFS=$'::'
+    VALUES=(${PARAMETERS_VALUES[$i]})
+    IFS=$SAVEIFS 
+    echo "🔍 CURRENT_VALUE: ${VALUES[0]}"
+    echo "🔎 NEW_VALUE: ${VALUES[1]}"
     sed -i.back "s|${CURRENT_VALUES[$i]}|${NEW_VALUES[$i]}|g" $FILE_PATH
     echo "✅ CURRENT_VALUE replaced by NEW_VALUE"
   done

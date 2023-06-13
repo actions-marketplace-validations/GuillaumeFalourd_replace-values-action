@@ -10,11 +10,8 @@ inputs:
   file_path:
     description: 'The path to the file to update.'
     required: true
-  current_value:
-    description: 'The current file value to replace. Accepts an array.'
-    required: true
-  new_value:
-    description: 'The new values to write (same order as the current_value). Accepts an array.'
+  parameters:
+    description: 'The current parameters to replace wit values. Accepts an array.'
     required: true
 
 runs:
@@ -25,12 +22,10 @@ runs:
       shell: bash
       env:
         FILE_PATH: ${{ inputs.file_path }}
-        CURRENT_VALUE: ${{ inputs.current_value }}
-        NEW_VALUE: ${{ inputs.new_value }}
+        PARAMETERS: ${{ inputs.parameters }}
     - run: bash main.sh
       if: runner.os == 'Windows'
       shell: bash
       env:
         FILE_PATH: ${{ inputs.file_path }}
-        CURRENT_VALUE: ${{ inputs.current_value }}
-        NEW_VALUE: ${{ inputs.new_value }}
+        PARAMETERS: ${{ inputs.parameters }}
