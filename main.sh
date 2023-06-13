@@ -20,7 +20,8 @@ main() {
 
   for (( i=0; i<${#CURRENT_VALUES[@]}; i++ ))
   do
-    echo -e "🔍 CURRENT_VALUE: ${CURRENT_VALUES[$i]}"
+    echo ""
+    echo "🔍 CURRENT_VALUE: ${CURRENT_VALUES[$i]}"
     echo "🔎 NEW_VALUE: ${NEW_VALUES[$i]}"
     sed -i.back "s|${CURRENT_VALUES[$i]}|${NEW_VALUES[$i]}|g" $FILE_PATH
     echo "📝 ${CURRENT_VALUES[$i]} ➡️ ${NEW_VALUES[$i]} ✅"
