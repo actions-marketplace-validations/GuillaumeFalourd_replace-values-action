@@ -23,7 +23,7 @@ main() {
     IFS=$SAVEIFS 
     echo "🔍 CURRENT_VALUE: ${VALUES[0]}"
     echo "🔎 NEW_VALUE: ${VALUES[1]}"
-    sed -i.back "s|${CURRENT_VALUES[$i]}|${NEW_VALUES[$i]}|g" $FILE_PATH
+    sed -i.back "s|${CURRENT_VALUES}|${NEW_VALUES}|g" $FILE_PATH
     echo "✅ CURRENT_VALUE replaced by NEW_VALUE"
   done
 }
