@@ -18,7 +18,7 @@ main() {
   do
     echo ""
     echo "PARAMETERS_VALUES: " ${PARAMETERS_VALUES[$i]}
-    readarray -d : -t VALUES <<< "${PARAMETERS_VALUES[$i]}"
+    readarray -d :: -t VALUES <<< "${PARAMETERS_VALUES[$i]}"
     echo "VALUES: " $VALUES
     echo "🔍 CURRENT_VALUE: ${VALUES[0]}"
     echo "🔎 NEW_VALUE: ${VALUES[1]}"
