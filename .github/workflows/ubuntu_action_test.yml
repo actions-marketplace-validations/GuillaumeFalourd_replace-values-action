@@ -11,29 +11,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-
-      - name: Save date env variable
-        run: echo "date=$(date)" >> $GITHUB_ENV
-        shell: bash
       
-      - name: Write simple value to test.properties file
-        uses: GuillaumeFalourd/write-java-properties-file@main
+      - name: Replace one value
+        uses: GuillaumeFalourd/replace-values-action@main
         with:
-          file_path: ${{github.workspace}}/test/test.properties
-          property: date.key
-          value: ${{ env.date }}
+          file_path: ${{github.workspace}}/test.yaml
+          current_value: REGISTRY_TO_UPDATE
+          new_value: new_registry_value
 
-      - name: Write multiple values to test.properties file
-        uses: GuillaumeFalourd/write-java-properties-file@main
+      - name: Replace multiple values
+        uses: GuillaumeFalourd/replace-values-action@main
         with:
-          file_path: ${{github.workspace}}/test/test.properties
-          property: |
-            first.property.key
-            second.property.key
-          value: |
-            first value
-            second value
+          file_path: ${{github.workspace}}/test.yaml
+          current_value: |
+            ACCOUNT_TO_UPDATE
+            URL_TO_UPDATE
+          new_value: |
+            new_account_value
+            new_url_value
         
       - name: Show updated file
-        run: cat ${{github.workspace}}/test/test.properties
+        run: cat ${{github.workspace}}/test.yaml
         shell: bash

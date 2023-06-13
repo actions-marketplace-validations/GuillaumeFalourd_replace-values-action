@@ -1,5 +1,5 @@
 image:
-  repository: "REGISTRY"
+  repository: "REGISTRY_TO_UPDATE"
 
 account: "ACCOUNT_TO_UPDATE"
 

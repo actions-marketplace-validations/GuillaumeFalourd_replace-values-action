@@ -1,65 +1,59 @@
-# Write Java Properties File
+# Replace Values Action
 
 <!-- markdownlint-disable MD013 -->
-[![Action test on Ubuntu](https://github.com/GuillaumeFalourd/write-java-properties-file/actions/workflows/ubuntu_action_test.yml/badge.svg)](https://github.com/GuillaumeFalourd/write-java-properties-file/actions/workflows/ubuntu_action_test.yml) [![Action test on MacOS](https://github.com/GuillaumeFalourd/write-java-properties-file/actions/workflows/macos_action_test.yml/badge.svg)](https://github.com/GuillaumeFalourd/write-java-properties-file/actions/workflows/macos_action_test.yml) [![Action test on Windows](https://github.com/GuillaumeFalourd/write-java-properties-file/actions/workflows/windows_action_test.yml/badge.svg)](https://github.com/GuillaumeFalourd/write-java-properties-file/actions/workflows/windows_action_test.yml)
+[![Action test on Ubuntu](https://github.com/GuillaumeFalourd/replace-values-action/actions/workflows/ubuntu_action_test.yml/badge.svg)](https://github.com/GuillaumeFalourd/replace-values-action/actions/workflows/ubuntu_action_test.yml) [![Action test on MacOS](https://github.com/GuillaumeFalourd/replace-values-action/actions/workflows/macos_action_test.yml/badge.svg)](https://github.com/GuillaumeFalourd/replace-values-action/actions/workflows/macos_action_test.yml) [![Action test on Windows](https://github.com/GuillaumeFalourd/replace-values-action/actions/workflows/windows_action_test.yml/badge.svg)](https://github.com/GuillaumeFalourd/replace-values-action/actions/workflows/windows_action_test.yml)
 <!-- markdownlint-enable MD013 -->
 
-☞ GitHub Action to write keys=values to a java `.properties` file ☕️ :octocat:
+☞ GitHub Action to replace values in a specific file :octocat:
 
 ## 📚 Usage
 
 ### Simple value
 
 ```yaml
-- name: Write simple value to application.properties file
-  uses: GuillaumeFalourd/write-java-properties-file@v1
+- name: Replace simple value in a specific file
+  uses: GuillaumeFalourd/replace-values-action@v1
   with:
-    file_path: ./src/main/resources/application.properties
-    property: property.key
-    value: value
+    file_path: ./path/to/file
+    current_value: old_value
+    new_value: new_value
 ```
 
 ### Multiline values
 
 ```yaml
-- name: Write multiple values to application.properties file
-  uses: GuillaumeFalourd/write-java-properties-file@v1
+- name: Replace multiple values in a specific file
+  uses: GuillaumeFalourd/replace-values-action@v1
   with:
-    file_path: ./src/main/resources/application.properties
-    property: |
-       first.property.key
-       second.property.key
-    value: |
-       first value
-       second value
+    file_path: ./path/to/file
+    current_value: |
+       first_key
+       second_key
+    new_value: |
+       first_value
+       second_value
 ```
 
 ## ▶️ Action Inputs
 
 Field | Mandatory | Observation
 ------------ | ------------  | -------------
-**file_path** | YES | Path to the `.properties` file.
-**property** | YES | Property / Properties keys to write.
-**value** | YES | Value(s) of the given property / properties, in the same order.
-
-## 🕵️ Troubleshooting
-
-- If the action is adding the first `key=value` at the same line as the last `key=value` present on the file, **add a new empty line to the file** before using the action.
-
-- The action currently **doesn't support** updating a key-value (PR are welcome!).
+**file_path** | YES | Path to the file to update.
+**current_value** | YES | Value(s) to replace.
+**new_value** | YES | New value(s) to set in the informed file, in the same order.
 
 ## 🤝 Contributing
 
-☞ If you're interested in contributing to this repository, please follow the [guidelines](https://github.com/GuillaumeFalourd/write-java-properties-file/blob/main/CONTRIBUTING.md)
+☞ If you're interested in contributing to this repository, please follow the [guidelines](https://github.com/GuillaumeFalourd/replace-values-action/blob/main/CONTRIBUTING.md)
 
 ## 🏅 Licensed
 
-☞ This repository uses the [Apache License 2.0](https://github.com/GuillaumeFalourd/write-java-properties-file/blob/main/LICENSE)
+☞ This repository uses the [Apache License 2.0](https://github.com/GuillaumeFalourd/replace-values-action/blob/main/LICENSE)
 
 <!-- ### Contribuidores
 
-<a href="https://github.com/GuillaumeFalourd/write-java-properties-file/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=GuillaumeFalourd/write-java-properties-file" />
+<a href="https://github.com/GuillaumeFalourd/replace-values-action/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=GuillaumeFalourd/replace-values-action" />
 </a>
 
 (Criado com [contributors-img](https://contrib.rocks)) -->
