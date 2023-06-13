@@ -17,6 +17,7 @@ main() {
   for (( i=0; i<${#PARAMETERS_VALUES[@]}; i++ ))
   do
     echo ""
+        echo "PARAMETERS_VALUES: " ${PARAMETERS_VALUES[$i]}
     SAVEIFS=$IFS
     IFS=$'::'
     VALUES=(${PARAMETERS_VALUES[$i]})
