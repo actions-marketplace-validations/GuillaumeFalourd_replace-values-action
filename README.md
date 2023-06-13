@@ -15,8 +15,8 @@
   uses: GuillaumeFalourd/replace-values-action@v1
   with:
     file_path: ./path/to/file
-    current_value: old_value
-    new_value: new_value
+    current_value: value1
+    new_value: value2
 ```
 
 ### Multiline values
@@ -27,11 +27,11 @@
   with:
     file_path: ./path/to/file
     current_value: |
-       first_key
-       second_key
+       current_value_1
+       current_value_2
     new_value: |
-       first_value
-       second_value
+       new_value_1
+       new_value_2
 ```
 
 ## ▶️ Action Inputs
