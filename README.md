@@ -27,11 +27,11 @@
   with:
     file_path: ./path/to/file
     current_value: |
-       value1
-       value2
+       current_value_1
+       current_value_2
     new_value: |
-       value3
-       value4
+       new_value_1
+       new_value_2
 ```
 
 ## ▶️ Action Inputs
