@@ -17,9 +17,11 @@ main() {
   for (( i=0; i<${#PARAMETERS_VALUES[@]}; i++ ))
   do
     echo ""
-    IFS=';' read -ra VALUES <<< "${PARAMETERS_VALUES[$i]}"
     echo "PARAM: " ${PARAMETERS_VALUES[$i]}
-    declare -p $VALUES
+    IFS='::' read -r -a array <<< "${PARAMETERS_VALUES[$i]}"
+    echo ${VALUES[0]}
+    echo ${VALUES[1]}
+    echo ${VALUES[2]}
     CURRENT_VALUE=${VALUES[0]}
     NEW_VALUE=$(echo ${VALUES[2]} | sed 's/$//;s/\n//')
     echo "🔍 CURRENT_VALUE: $CURRENT_VALUE"
