@@ -19,6 +19,7 @@ main() {
     echo ""
     echo "PARAMETERS_VALUES: " ${PARAMETERS_VALUES[$i]}
     readarray -d :: -t VALUES <<< "${PARAMETERS_VALUES[$i]}"
+    declare -p VALUES  
     CURRENT_VALUE=${VALUES[0]}
     NEW_VALUE=${VALUES[2]} | sed 's/$//g' | sed 's/\n//g'
     echo "🔍 CURRENT_VALUE: $CURRENT_VALUE"
