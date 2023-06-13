@@ -18,7 +18,7 @@ main() {
   do
     echo ""
     echo "PARAM: " ${PARAMETERS_VALUES[$i]}
-    IFS='::' read -r -a array <<< "${PARAMETERS_VALUES[$i]}"
+    IFS='::' read -r -a VALUES <<< "${PARAMETERS_VALUES[$i]}"
     echo ${VALUES[0]}
     echo ${VALUES[1]}
     echo ${VALUES[2]}
