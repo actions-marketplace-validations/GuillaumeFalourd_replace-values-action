@@ -11,7 +11,11 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
-      
+
+      - name: Show current file
+        run: cat ${{github.workspace}}/test.yaml
+        shell: bash
+
       - name: Replace one value
         uses: GuillaumeFalourd/replace-values-action@main
         with:

@@ -20,8 +20,7 @@ main() {
 
   for (( i=0; i<${#CURRENT_VALUES[@]}; i++ ))
   do
-    echo "KEY $i: ${CURRENT_VALUES[$i]}"
-    echo "VALUE $i: ${NEW_VALUES[$i]}"
+    echo "CURRENT_VALUE $i: ${CURRENT_VALUES[$i]}" ➡️ "NEW_VALUE $i: ${NEW_VALUES[$i]}"
     sed -i.back "s|${CURRENT_VALUES[$i]}|${NEW_VALUES[$i]}|g" $FILE_PATH
   done
 }
