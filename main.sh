@@ -24,7 +24,7 @@ main() {
     echo "🔍 CURRENT_VALUE: ${CURRENT_VALUES[$i]}"
     echo "🔎 NEW_VALUE: ${NEW_VALUES[$i]}"
     sed -i.back "s|${CURRENT_VALUES[$i]}|${NEW_VALUES[$i]}|g" $FILE_PATH
-    echo "📝 ${CURRENT_VALUES[$i]} ➡️ ${NEW_VALUES[$i]} ✅"
+    echo "✅ CURRENT_VALUE replaced by NEW_VALUE"
   done
 }
 
