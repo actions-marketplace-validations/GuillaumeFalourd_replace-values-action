@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Show current file
-        run: cat ${{github.workspace}}/test.yaml
+        run: cat ${{github.workspace}}\test.yaml
         shell: bash
 
       - name: Replace one value
@@ -35,5 +35,5 @@ jobs:
             new_url_value
         
       - name: Show updated file
-        run: cat ${{github.workspace}}/test.yaml
+        run: cat ${{github.workspace}}\test.yaml
         shell: bash
