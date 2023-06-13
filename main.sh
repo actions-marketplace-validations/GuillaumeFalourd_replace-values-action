@@ -9,8 +9,6 @@ main() {
   local VALUE="$VALUE";
 
   echo "FILE_PATH:$FILE_PATH"
-  echo "PROPERTY:$PROPERTY"
-  echo "VALUE:$VALUE"
     
   SAVEIFS=$IFS       # Save current IFS (Internal Field Separator)
   IFS=$'\n'          # Change IFS to newline char
@@ -24,7 +22,7 @@ main() {
   do
     echo "KEY $i:${KEYS[$i]}"
     echo "VALUE $i:${VALUES[$i]}"
-    sed -i.back `s|${KEYS[$i]}|${VALUES[$i]|g` $FILE_PATH
+    sed -i.back "s|${KEYS[$i]}|${VALUES[$i]|g" $FILE_PATH
   done
 }
 
