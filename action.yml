@@ -17,9 +17,6 @@ inputs:
 runs:
   using: composite
   steps:
-    - if: runner.os == 'macOS'
-      run: brew install bash
-      shell: bash
     - run: ${{ github.action_path }}/main.sh
       if: runner.os != 'Windows'
       shell: bash
