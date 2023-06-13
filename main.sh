@@ -24,7 +24,7 @@ main() {
   do
     echo "KEY $i:${KEYS[$i]}"
     echo "VALUE $i:${VALUES[$i]}"
-    sed `-i.back "s|${KEYS[$i]}|${VALUES[$i]|g"` $FILE_PATH
+    sed -i.back `s|${KEYS[$i]}|${VALUES[$i]|g` $FILE_PATH
   done
 }
 
