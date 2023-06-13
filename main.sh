@@ -20,9 +20,10 @@ main() {
     echo "PARAMETERS_VALUES: " ${PARAMETERS_VALUES[$i]}
     readarray -d :: -t VALUES <<< "${PARAMETERS_VALUES[$i]}"
     echo "VALUES: " $VALUES
+    declare -p VALUES  
     echo "🔍 CURRENT_VALUE: ${VALUES[0]}"
     echo "🔎 NEW_VALUE: ${VALUES[1]}"
-    sed -i.back "s|${CURRENT_VALUE}|${NEW_VALUE}|g" $FILE_PATH
+    sed -i.back "s|${VALUES[0]}|${VALUES[1]}|g" $FILE_PATH
     echo "✅ CURRENT_VALUE replaced by NEW_VALUE"
   done
 }
