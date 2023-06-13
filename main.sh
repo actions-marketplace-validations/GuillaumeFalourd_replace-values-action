@@ -21,7 +21,7 @@ main() {
     readarray -d :: -t VALUES <<< "${PARAMETERS_VALUES[$i]}"
     declare -p VALUES  
     CURRENT_VALUE=${VALUES[0]}
-    NEW_VALUE=${VALUES[2]} | sed 's/$//g' | sed 's/\n//g'
+    NEW_VALUE=$(echo ${VALUES[2]} | sed 's/$//;s/\n//')
     echo "🔍 CURRENT_VALUE: $CURRENT_VALUE"
     echo "🔎 NEW_VALUE: $NEW_VALUE"
     sed -i.back "s|$CURRENT_VALUE|$NEW_VALUE|g" $FILE_PATH
