@@ -25,12 +25,12 @@ runs:
       shell: bash
       env:
         FILE_PATH: ${{ inputs.file_path }}
-        PROPERTY: ${{ inputs.current_value }}
-        VALUE: ${{ inputs.new_value }}
+        CURRENT_VALUE: ${{ inputs.current_value }}
+        NEW_VALUE: ${{ inputs.new_value }}
     - run: bash main.sh
       if: runner.os == 'Windows'
       shell: bash
       env:
         FILE_PATH: ${{ inputs.file_path }}
-        PROPERTY: ${{ inputs.current_value }}
-        VALUE: ${{ inputs.new_value }}
+        CURRENT_VALUE: ${{ inputs.current_value }}
+        NEW_VALUE: ${{ inputs.new_value }}

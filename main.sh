@@ -5,24 +5,24 @@ set -euo pipefail
 main() {
 
   local FILE_PATH="$FILE_PATH";
-  local PROPERTY="$PROPERTY";
-  local VALUE="$VALUE";
+  local CURRENT_VALUE="$CURRENT_VALUE";
+  local NEW_VALUE="$NEW_VALUE";
 
   echo "FILE_PATH:$FILE_PATH"
     
-  SAVEIFS=$IFS       # Save current IFS (Internal Field Separator)
-  IFS=$'\n'          # Change IFS to newline char
-  KEYS=($PROPERTY)   # split the `properties` string into an array by the same name
-  IFS=$SAVEIFS       # Restore original IFS
-  IFS=$'\n'          # Change IFS to newline char
-  VALUES=($VALUE)    # split the `properties` string into an array by the same name
-  IFS=$SAVEIFS       # Restore original IFS 
+  SAVEIFS=$IFS                      # Save current IFS (Internal Field Separator)
+  IFS=$'\n'                         # Change IFS to newline char
+  CURRENT_VALUES=($CURRENT_VALUE)   # split the `current_value` string into an array by the same name
+  IFS=$SAVEIFS                      # Restore original IFS
+  IFS=$'\n'                         # Change IFS to newline char
+  NEW_VALUES=($NEW_VALUE)           # split the `new_value` string into an array by the same name
+  IFS=$SAVEIFS                      # Restore original IFS 
 
-  for (( i=0; i<${#KEYS[@]}; i++ ))
+  for (( i=0; i<${#CURRENT_VALUES[@]}; i++ ))
   do
-    echo "KEY $i :${KEYS[$i]}"
-    echo "VALUE $i :${VALUES[$i]}"
-    sed -i.back "s|${KEYS[$i]}|${VALUES[$i]}|g" $FILE_PATH
+    echo "KEY $i: ${CURRENT_VALUES[$i]}"
+    echo "VALUE $i: ${NEW_VALUES[$i]}"
+    sed -i.back "s|${CURRENT_VALUES[$i]}|${NEW_VALUES[$i]}|g" $FILE_PATH
   done
 }
 
