@@ -17,10 +17,9 @@ main() {
   for (( i=0; i<${#PARAMETERS_VALUES[@]}; i++ ))
   do
     echo ""
-    VALUES=(${PARAMETERS_VALUES[$i]//::/})
-    echo "VALUES: " $VALUES
-    CURRENT_VALUE=${VALUES[0]}
-    NEW_VALUE=$(echo ${VALUES[1]} | sed 's/$//;s/\n//')
+    echo "PARAM: " ${PARAMETERS_VALUES[$i]}
+    CURRENT_VALUE=${PARAMETERS_VALUES[$i]} | cut -d "::" -f 1
+    NEW_VALUE=$(echo ${PARAMETERS_VALUES[$i]} | cut -d "::" -f 2 | sed 's/$//;s/\n//')
     echo "🔍 CURRENT_VALUE: $CURRENT_VALUE"
     echo "🔎 NEW_VALUE: $NEW_VALUE"
     sed -i.back "s|$CURRENT_VALUE|$NEW_VALUE|g" $FILE_PATH
