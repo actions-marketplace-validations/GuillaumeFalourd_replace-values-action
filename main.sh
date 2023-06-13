@@ -17,12 +17,9 @@ main() {
   for (( i=0; i<${#PARAMETERS_VALUES[@]}; i++ ))
   do
     echo ""
-        echo "PARAMETERS_VALUES: " ${PARAMETERS_VALUES[$i]}
-    SAVEIFS=$IFS
-    IFS=$'::'
-    VALUES=(${PARAMETERS_VALUES[$i]})
+    echo "PARAMETERS_VALUES: " ${PARAMETERS_VALUES[$i]}
+    readarray -d : -t VALUES <<< "${PARAMETERS_VALUES[$i]}"
     echo "VALUES: " $VALUES
-    IFS=$SAVEIFS 
     echo "🔍 CURRENT_VALUE: ${VALUES[0]}"
     echo "🔎 NEW_VALUE: ${VALUES[1]}"
     sed -i.back "s|${CURRENT_VALUE}|${NEW_VALUE}|g" $FILE_PATH
