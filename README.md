@@ -36,7 +36,7 @@
 Field | Mandatory | Observation
 ------------ | ------------  | -------------
 **file_path** | YES | Path to the file to update.
-**parameters** | YES | value_to_replace::new_value (can be an array)
+**parameters** | YES | `value_to_replace::new_value` (can be an array).
 
 ## 🤝 Contributing
 
