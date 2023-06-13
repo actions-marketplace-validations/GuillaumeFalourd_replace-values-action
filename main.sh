@@ -20,9 +20,9 @@ main() {
 
   for (( i=0; i<${#KEYS[@]}; i++ ))
   do
-    echo "KEY $i:${KEYS[$i]}"
-    echo "VALUE $i:${VALUES[$i]}"
-    sed -i.back 's|${KEYS[$i]}|${VALUES[$i]|g' $FILE_PATH
+    echo "KEY $i :${KEYS[$i]}"
+    echo "VALUE $i :${VALUES[$i]}"
+    sed -i.back "s|${KEYS[$i]}|${VALUES[$i]}|g" $FILE_PATH
   done
 }
 
