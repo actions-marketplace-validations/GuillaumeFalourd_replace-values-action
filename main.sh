@@ -18,7 +18,7 @@ main() {
   do
     echo ""
     VALUES=(${PARAMETERS_VALUES[$i]//::/})
-    declare -p $VALUES
+    echo "VALUES: " $VALUES
     CURRENT_VALUE=${VALUES[0]}
     NEW_VALUE=$(echo ${VALUES[1]} | sed 's/$//;s/\n//')
     echo "🔍 CURRENT_VALUE: $CURRENT_VALUE"
