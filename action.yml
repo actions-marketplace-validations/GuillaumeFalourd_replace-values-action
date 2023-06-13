@@ -1,0 +1,36 @@
+name: Replace Value(s)
+
+description: 'GitHub Action to replace value(s) in a specific file :octocat:'
+
+branding:
+  icon: 'edit'
+  color: 'green'
+
+inputs:
+  file_path:
+    description: 'The path to the file to update.'
+    required: true
+  current_value:
+    description: 'The current file value to replace. Accepts an array.'
+    required: true
+  new_value:
+    description: 'The new values to write (same order as the current_value). Accepts an array.'
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - run: ${{ github.action_path }}/main.sh
+      if: runner.os != 'Windows'
+      shell: bash
+      env:
+        FILE_PATH: ${{ inputs.file_path }}
+        PROPERTY: ${{ inputs.current_value }}
+        VALUE: ${{ inputs.new_value }}
+    - run: bash main.sh
+      if: runner.os == 'Windows'
+      shell: bash
+      env:
+        FILE_PATH: ${{ inputs.file_path }}
+        PROPERTY: ${{ inputs.current_value }}
+        VALUE: ${{ inputs.new_value }}

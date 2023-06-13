@@ -1,0 +1,7 @@
+image:
+  repository: "REGISTRY"
+
+account: "ACCOUNT_TO_UPDATE"
+
+environment:
+  URL: "URL_TO_UPDATE"

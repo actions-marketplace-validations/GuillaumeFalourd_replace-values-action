@@ -1,0 +1,35 @@
+name: Action test on MacOS
+
+on:
+  schedule:
+    - cron: "0 4 * * MON-FRI" # Runs at 02:00 UTC
+  push:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Replace one value
+        uses: GuillaumeFalourd/replace-values-action@main
+        with:
+          file_path: ${{github.workspace}}/test.yaml
+          current_value: REGISTRY_TO_UPDATE
+          new_value: new_registry_value
+
+      - name: Replace multiple values
+        uses: GuillaumeFalourd/replace-values-action@main
+        with:
+          file_path: ${{github.workspace}}/test.yaml
+          current_value: |
+            ACCOUNT_TO_UPDATE
+            URL_TO_UPDATE
+          new_value: |
+            new_account_value
+            new_url_value
+        
+      - name: Show updated file
+        run: cat ${{github.workspace}}/test.yaml
+        shell: bash
