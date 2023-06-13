@@ -15,8 +15,7 @@
   uses: GuillaumeFalourd/replace-values-action@v1
   with:
     file_path: ./path/to/file
-    current_value: value1
-    new_value: value2
+    parameters: value1::value2
 ```
 
 ### Multiline values
@@ -26,12 +25,10 @@
   uses: GuillaumeFalourd/replace-values-action@v1
   with:
     file_path: ./path/to/file
-    current_value: |
-       current_value_1
-       current_value_2
-    new_value: |
-       new_value_1
-       new_value_2
+    parameters: |
+       current_value_1::new_value_1
+       current_value_2::new_value_2
+       
 ```
 
 ## ▶️ Action Inputs
@@ -39,8 +36,7 @@
 Field | Mandatory | Observation
 ------------ | ------------  | -------------
 **file_path** | YES | Path to the file to update.
-**current_value** | YES | Value(s) to replace.
-**new_value** | YES | New value(s) to set in the informed file, in the same order.
+**parameters** | YES | value_to_replace::new_value (can be an array)
 
 ## 🤝 Contributing
 
